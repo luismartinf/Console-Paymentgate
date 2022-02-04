@@ -34,12 +34,18 @@ namespace PaymentGateway_Console
         public string Email1 { get => email; set => email = value; }
 
         //Override method to display the data of the Client/Seller
-        public override string ToString()
+        public override string ToString( )
         {
-            
+            string writef = $"{UserName1},{First_N1},{Last_N1},{Add_date1},{Password1},{Email1}";
+            return writef;
+        }
+
+        public virtual string Display_inf()
+        {
             string Display;
-            Display = $"Username:{UserName1}, Name: {First_N1} {Last_N1}";
+            Display = $"Username:{UserName1}, Name: {First_N1} {Last_N1}, Email:{Email1}";
             return Display;
-        } 
+        }
+        
     }
 }

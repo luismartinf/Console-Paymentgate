@@ -9,10 +9,11 @@ namespace PaymentGateway_Console
 {
     class Payment_actions : IActions_info
     {
-        public object Add_info(object user_name)
+        public object Add_info(object user_name, string type )
         {
             string user = user_name as string;
             Payment_method payment = new Payment_method();
+            payment.User_type1 = type;
             Console.WriteLine("Country");
             payment.Country1 = Console.ReadLine();
             Console.WriteLine("Type Card");
@@ -66,13 +67,13 @@ namespace PaymentGateway_Console
         {
             string id = Convert.ToString(id_payment);
             var payment = Menu.paymethod_list[id];
-            Console.WriteLine(payment.ToString()); 
+            Console.WriteLine(payment.Display_inf()); 
             
         }
 
         public void Show_info(Payment_method payment)
         {
-           Console.WriteLine(payment.ToString());
+           Console.WriteLine(payment.Display_inf());
         }
     }
 }

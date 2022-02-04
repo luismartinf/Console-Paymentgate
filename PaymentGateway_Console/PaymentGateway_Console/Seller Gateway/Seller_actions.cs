@@ -12,15 +12,18 @@ namespace PaymentGateway_Console
     {
 
         //Method to add a seller
-        public object Add_info(object obj)
+        public object Add_info(object obj, string type = "Seller")
         {
             // Retrieve information from the client saved in the client txt file
             Seller seller = new Seller();
 
             //Generate a user name and check if it doesnot exist
             List<string> user_used = new List<string>();
-            foreach (Seller c_user in Menu.sellers_list)
-            { user_used.Add(c_user.UserName1); }
+            if (Menu.clients_list != null)
+            {
+                foreach (Seller c_user in Menu.sellers_list)
+                { user_used.Add(c_user.UserName1);}
+            }
             Console.WriteLine("Generate a username");
             string new_user = Console.ReadLine();
             bool validuser = false;
@@ -43,6 +46,10 @@ namespace PaymentGateway_Console
             seller.First_N1 = Console.ReadLine();
             Console.WriteLine("Last Name");
             seller.Last_N1 = Console.ReadLine();
+            Console.WriteLine("Email");
+            seller.Email1 = Console.ReadLine();
+            Console.WriteLine("Online Shopping Url");
+            seller.OS_Url1 = Console.ReadLine();
             return seller;
         }
 
@@ -59,7 +66,7 @@ namespace PaymentGateway_Console
         public void Show_info(object seller_data)
         {
             Seller sellers = (Seller) seller_data;
-            Console.WriteLine(sellers.ToString());
+            Console.WriteLine(sellers.Display_inf());
         }
 
 

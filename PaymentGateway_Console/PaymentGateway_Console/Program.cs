@@ -31,7 +31,7 @@ namespace PaymentGateway_Console
                         ValidRole = true;
                         break;
                     case "Seller":
-                        Console.WriteLine("Select if you want to do actions for a sellor write C or payment methods of existing sellor write PMC");
+                        Console.WriteLine("Select if you want to do actions for a sellor write S or payment methods of existing sellor write PMS");
                         string menu_SorPMS = Console.ReadLine();
                         if (menu_SorPMS == "S")
                         { Menu.Menu_sellors(); }

@@ -173,9 +173,8 @@ namespace PaymentGateway_Console
         public void Write_file(string text_file, List<Client> clients_saved, string filepath)
         {
             string path = filepath + text_file;
-            if (!File.Exists(path)) { File.Create(path); }
-            using (TextWriter tw = new StreamWriter(text_file))
-            { foreach (var client_s in clients_saved)
+            using (TextWriter tw = new StreamWriter(path))
+            { foreach (object client_s in clients_saved)
                 { tw.WriteLine(value: client_s); }
             }
 
@@ -184,26 +183,22 @@ namespace PaymentGateway_Console
         public void Write_file(string text_file, List<Seller> seller_saved, string filepath)
         {
             string path = filepath + text_file;
-            File.Create(path);
-            using (TextWriter tw = new StreamWriter(text_file))
+            using (TextWriter tw = new StreamWriter(path))
             {
-                foreach (var client_s in seller_saved)
-                { tw.WriteLine(client_s); }
+                foreach (object seller_s in seller_saved)
+                { tw.WriteLine(seller_s); }
             }
 
         }
-        //Method to write a Purchase txt file
+        //Method to write the Paymethods txt file
         public void Write_file(string text_file, SortedList<string,Payment_method> payment_saved, string filepath)
         {
             string path = filepath + text_file;
-            File.Create(path);
-            using (TextWriter tw = new StreamWriter(text_file))
+            using (TextWriter tw = new StreamWriter(path))
             {
-                foreach (var client_s in payment_saved)
-                { tw.WriteLine(client_s); }
+                foreach ( KeyValuePair<string,Payment_method> pay_s in payment_saved)
+                { tw.WriteLine($"{pay_s.Key},{pay_s.Value}"); }
             }
-
-
         }
 
 

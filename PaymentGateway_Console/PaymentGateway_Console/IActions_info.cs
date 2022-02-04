@@ -8,7 +8,7 @@ namespace PaymentGateway_Console
 {
     interface IActions_info
     {
-        object Add_info(object obj);
+        object Add_info(object obj, string type);
         void Delete_info(object obj);
         void Show_info(object obj);
        

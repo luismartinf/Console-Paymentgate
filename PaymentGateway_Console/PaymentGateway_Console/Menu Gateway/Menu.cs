@@ -47,7 +47,7 @@ namespace PaymentGateway_Console
                         while (!correct_data)
                         {
                             Client new_client =(Client) client_actions.Add_info(obj);
-                            Payment_method new_pay = (Payment_method)payment_Actions.Add_info(new_client.UserName1);
+                            Payment_method new_pay = (Payment_method)payment_Actions.Add_info(new_client.UserName1,"Client");
                             //add client information
                             Console.WriteLine("This is your personal information");
                             client_actions.Show_info(new_client);
@@ -249,7 +249,7 @@ namespace PaymentGateway_Console
                         while (!correct_data)
                         {
                             Seller new_seller = (Seller)seller_actions.Add_info(obj);
-                            Payment_method new_pay = (Payment_method)payment_Actions.Add_info(new_seller.UserName1);
+                            Payment_method new_pay = (Payment_method)payment_Actions.Add_info(new_seller.UserName1,"Seller");
                             Console.WriteLine("This is your information");
                             seller_actions.Show_info(new_seller);
                             payment_Actions.Show_info(new_pay);

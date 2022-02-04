@@ -49,7 +49,7 @@ namespace PaymentGateway_Console
                                     Console.WriteLine("This is your personal information");
                                     client_actions.Show_info(item_C);
                                     Console.WriteLine("Add the new payment method");
-                                    Payment_method new_pay = (Payment_method)payment_Actions.Add_info(item_C.UserName1);
+                                    Payment_method new_pay = (Payment_method)payment_Actions.Add_info(item_C.UserName1,"Client");
                                     payment_Actions.Show_info(new_pay);
                                     DateTime tdy = DateTime.Now;
                                     Console.WriteLine($"Your data saved {tdy} is correct Yes/No?");
@@ -202,7 +202,7 @@ namespace PaymentGateway_Console
                                     Console.WriteLine("This is your personal information");
                                     seller_actions.Show_info(item_C);
                                     Console.WriteLine("Add the new payment method");
-                                    Payment_method new_pay = (Payment_method)payment_Actions.Add_info(item_C.UserName1);
+                                    Payment_method new_pay = (Payment_method)payment_Actions.Add_info(item_C.UserName1,"Seller");
                                     payment_Actions.Show_info(new_pay);
                                     DateTime tdy = DateTime.Now;
                                     Console.WriteLine($"Your data saved {tdy} is correct Yes/No?");

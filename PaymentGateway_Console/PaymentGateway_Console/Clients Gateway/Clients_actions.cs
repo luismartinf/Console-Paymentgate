@@ -12,14 +12,13 @@ namespace PaymentGateway_Console
         
         
         //Method to add a client
-        public object Add_info(object obj)
+        public object Add_info(object obj, string type = "Client")
         {
             // Retrieve information from the client saved in the client txt file
             Client client = new Client();
 
             //Generate a user name and check if it doesnot exist
             List<string> user_used = new List<string>();
-            //Try, catch now if
             if (Menu.clients_list != null)
             {
                 foreach (Client c_user in Menu.clients_list)
@@ -65,7 +64,7 @@ namespace PaymentGateway_Console
         public void Show_info(object client_data)
         {
             Client client = (Client)client_data;
-            Console.WriteLine(client.ToString());
+            Console.WriteLine(client.Display_inf());
         }
     }
 }

@@ -21,12 +21,12 @@ namespace PaymentGateway_Console
 
         //Billin adress
         
-        string Country;
-        string Add_1;
-        string Add_2;
-        string City;
-        string State;
-        string CP;
+        string country;
+        string add_1;
+        string add_2;
+        string city;
+        string state;
+        string cp;
         
         //Initial data for values that are not allways retrived in the case of city in some cases doesn´t exist,
         //Exp_date and CVV aren´t relevant for the seller to use the inheritance of the class they have dummy values
@@ -40,12 +40,12 @@ namespace PaymentGateway_Console
         }
 
 
-        public string Country1 { get => Country; set => Country = value; }
-        public string Add_11 { get => Add_1; set => Add_1 = value; }
-        public string Add_21 { get => Add_2; set => Add_2 = value; }
-        public string City1 { get => City; set => City = value; }
-        public string State1 { get => State; set => State = value; }
-        public string CP1 { get => CP; set => CP = value; }
+        public string Country1 { get => country; set => country = value; }
+        public string Add_11 { get => add_1; set => add_1 = value; }
+        public string Add_21 { get => add_2; set => add_2 = value; }
+        public string City1 { get => city; set => city = value; }
+        public string State1 { get => state; set => state = value; }
+        public string CP1 { get => cp; set => cp = value; }
         public string Type_card1 { get => type_card; set => type_card = value; }
         public long Card_N1 { get => card_N; set => card_N = value; }
         public DateTime Exp_date1 { get => exp_date; set => exp_date = value; }
@@ -58,9 +58,14 @@ namespace PaymentGateway_Console
         //Override method to display the data of the Client/Seller
         public override string ToString()
         {
+            string writef = $"{User_name1},{User_type1},{Type_card1},{Card_N1},{L4_digit1},{Exp_date1},{CVV1},{Country1},{Add_11},{Add_21},{City1},{State1},{CP1}";
+            return writef;
+        }
+        public string Display_inf()
+        {
             string Display;
             if (City1 == "")
-            { Display =$"Card Number **** **** **** **** {L4_digit1} \n Billing Adress: {Add_11}, {Add_21}, {CP1}, {State1}, {Country1}"; }
+            { Display = $"Card Number **** **** **** **** {L4_digit1} \n Billing Adress: {Add_11}, {Add_21}, {CP1}, {State1}, {Country1}"; }
             else
             { Display = $"Card Number **** **** **** **** {L4_digit1} \n Billing Adress: {Add_11}, {Add_21}, {CP1}, {City1}, {State1}, {Country1}"; }
             return Display;
