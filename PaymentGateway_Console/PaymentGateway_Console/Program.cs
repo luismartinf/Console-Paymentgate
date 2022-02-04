@@ -25,7 +25,7 @@ namespace PaymentGateway_Console
                         Console.WriteLine("Select if you want to do actions for a client write C or payment methods of existing client write PMC");
                         string menu_CorPMC =Console.ReadLine();
                         if (menu_CorPMC == "C")
-                        { Menu.Menu_clients(); }
+                        { Main_menu.Menu_clients(); }
                         else if (menu_CorPMC == "PMC")
                         { Menu_paymethod.Menu_clients(); }    
                         ValidRole = true;
@@ -34,13 +34,13 @@ namespace PaymentGateway_Console
                         Console.WriteLine("Select if you want to do actions for a sellor write S or payment methods of existing sellor write PMS");
                         string menu_SorPMS = Console.ReadLine();
                         if (menu_SorPMS == "S")
-                        { Menu.Menu_sellors(); }
+                        { Main_menu.Menu_sellors(); }
                         else if (menu_SorPMS == "PMS")
                         { Menu_paymethod.Menu_sellors(); }
                         ValidRole = true;
                         break;
                     case "Manager":
-                        Menu.Menu_managers();
+                        Main_menu.Menu_managers();
                         ValidRole = true;
                         break;
                     default:

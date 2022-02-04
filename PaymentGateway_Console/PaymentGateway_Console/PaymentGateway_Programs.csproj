@@ -43,17 +43,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Menu Gateway\Manager_menu.cs" />
+    <Compile Include="Menu Gateway\Sellers_menu.cs" />
+    <Compile Include="Menu Gateway\Client_menu.cs" />
+    <Compile Include="Transfers_Gateway\Transfer_actions.cs" />
     <Compile Include="Menu Gateway\Menu_paymethod.cs" />
-    <Compile Include="IActions_trans.cs" />
+    <Compile Include="User defined Interfaces\IActions_trans.cs" />
     <Compile Include="Transfers_Gateway\Transfer_Bank.cs" />
-    <Compile Include="Paymethod Gateway\Payment_actions.cs" />
+    <Compile Include="Paymethod Gateway\Payment_BO.cs" />
     <Compile Include="Paymethod Gateway\Payment_method.cs" />
-    <Compile Include="IActions_info.cs" />
+    <Compile Include="User defined Interfaces\IActions_info.cs" />
     <Compile Include="Transactions Gateway\Transaction_actions.cs" />
     <Compile Include="Transactions Gateway\Transaction.cs" />
-    <Compile Include="Menu Gateway\Menu.cs" />
-    <Compile Include="Seller Gateway\Seller_actions.cs" />
-    <Compile Include="Clients Gateway\Clients_actions.cs" />
+    <Compile Include="Menu Gateway\Main_menu.cs" />
+    <Compile Include="Seller Gateway\Seller_BO.cs" />
+    <Compile Include="Clients Gateway\Clients_BO.cs" />
     <Compile Include="Menu Gateway\Read_write_files.cs" />
     <Compile Include="Seller Gateway\Seller.cs" />
     <Compile Include="Clients Gateway\Client.cs" />

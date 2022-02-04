@@ -28,7 +28,7 @@ namespace PaymentGateway_Console
         {   if (type == "Client")
             {
                 List<int> id_used = new List<int>();
-                foreach (Transaction trans in Menu.transaction_list.Values)
+                foreach (Transaction trans in Main_menu.transaction_list.Values)
                 { id_used.Add(trans.Id_transaction); }
                 Random rnd = new Random();
                 int random_id = rnd.Next(100000, 999999);
@@ -49,7 +49,7 @@ namespace PaymentGateway_Console
             }
             else
             {
-                foreach (Transaction trans in Menu.transaction_list.Values)
+                foreach (Transaction trans in Main_menu.transaction_list.Values)
                 {
                     if (trans.Item1 == item)
                     { this.id_transaction = trans.Id_transaction; }
@@ -60,6 +60,12 @@ namespace PaymentGateway_Console
             }
         }
 
+        public override string ToString()
+        {
+            
+            return base.ToString();
+        }
+
         //properties of the transactions
         public int Id_transaction { get => id_transaction; set => id_transaction = value; }
         public string Type_trans { get => type_trans; set => type_trans = value; }
@@ -68,5 +74,7 @@ namespace PaymentGateway_Console
         public DateTime T_start { get => time_start; set => time_start = value; }
         public string Status { get => status; set => status = value; }
         public DateTime T_finish { get => time_finish; set => time_finish = value; }
+
+
     }
 }

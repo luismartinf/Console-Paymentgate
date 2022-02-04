@@ -8,20 +8,14 @@ namespace PaymentGateway_Console
 {
     class Menu_paymethod
     {
-        public static object[] Gateway;
-        public static List<Seller> sellers_list;
-        public static List<Client> clients_list;
-        public static Dictionary<string, Transaction> transaction_list;
-        public static SortedList<string, Payment_method> paymethod_list;
-        public static SortedList<string, Transfer_Bank> transfer_list;
-
+  
         //menu of the client
         public static void Menu_clients()
         //read the database of clients
         {
             Read_write_files files_rw = new Read_write_files();
-            Client_actions client_actions = new Client_actions();
-            Payment_actions payment_Actions = new Payment_actions();
+            Client_BO client_actions = new Client_BO();
+            Payment_BO payment_Actions = new Payment_BO();
             //path where is saved the file  (@"C:\Users\luis.martin\Downloads)
             List<Client> clients = (List<Client>)files_rw.Read_list("Clients Gateway", @"C:\Users\luis.martin\Downloads\", "Clients");
             SortedList<string, Payment_method> payments = (SortedList<string, Payment_method>)files_rw.Read_list("Paymethod Gateway", @"C:\Users\luis.martin\Downloads\", "Paymethod");
@@ -69,9 +63,9 @@ namespace PaymentGateway_Console
                             }    
                         }  
                         //Update the list
-                        paymethod_list = payments;
+                        Main_menu.paymethod_list = payments;
                         //Update the client list that is a txt file saved from the list
-                        files_rw.Write_file("Paymethod Gateway", paymethod_list, @"C:\Users\luis.martin\Downloads\");
+                        files_rw.Write_file("Paymethod Gateway", Main_menu.paymethod_list, @"C:\Users\luis.martin\Downloads\");
                         validoption = true;
                         break;
 
@@ -89,23 +83,21 @@ namespace PaymentGateway_Console
                                 Console.WriteLine("If you want to erase your information enter your password");
                                 string key_client = Console.ReadLine();
                                 int attempts = 0;
-                                bool correct_pas = false;
-                                while (!correct_pas | attempts < 3)
+                                while (attempts < 3)
                                 {
                                     if (item_C.Password1 == key_client)
                                     {
                                         //Delete client information
                                         payment_Actions.Delete_info(payment_id);
                                         Console.WriteLine("Payment method deleted");
-                                        files_rw.Write_file("Paymethod Gateway", paymethod_list, @"C:\Users\luis.martin\Downloads\");
-                                        correct_pas = true;
+                                        files_rw.Write_file("Paymethod Gateway", Main_menu.paymethod_list, @"C:\Users\luis.martin\Downloads\");
+                                        attempts += 3;
                                     }
                                     else
                                     {
                                         attempts++;
                                         Console.WriteLine($"Incorrect pasword, try again remain attempst {3 - attempts}");
                                         key_client = Console.ReadLine();
-                                        correct_pas = false;
                                     }
                                 }
                             }
@@ -129,8 +121,7 @@ namespace PaymentGateway_Console
                                 Console.WriteLine("If you want to view your information enter your password");
                                 string key_client = Console.ReadLine();
                                 int attempts = 0;
-                                bool correct_pas = false;
-                                while (!correct_pas | attempts < 3)
+                                while (attempts < 3)
                                 {
                                     if (item_C.Password1 == key_client)
                                     {
@@ -138,14 +129,13 @@ namespace PaymentGateway_Console
                                         client_actions.Show_info(item_C);
                                         payment_Actions.Show_info(payment_id); 
                                         Console.WriteLine("If is not correct deleted your data and add the new one");
-                                        correct_pas = true;
+                                        attempts += 3;
                                     }
                                     else
                                     {
                                     attempts++;
                                     Console.WriteLine($"Incorrect pasword, try again remain attempst {3 - attempts}");
                                     key_client = Console.ReadLine();
-                                    correct_pas = false;
                                     }
 
                                 }
@@ -170,8 +160,8 @@ namespace PaymentGateway_Console
         {
             //Read the file with the Sellers information
             Read_write_files files_rw = new Read_write_files();
-            Seller_actions seller_actions = new Seller_actions();
-            Payment_actions payment_Actions = new Payment_actions();
+            Seller_BO seller_actions = new Seller_BO();
+            Payment_BO payment_Actions = new Payment_BO();
             //path where is saved the file  (@"C:\Users\luis.martin\Downloads)
             List<Seller> sellers = (List<Seller>)files_rw.Read_list("Sellers Gateway", @"C: \Users\luis.martin\Downloads\", "Sellers");
             SortedList<string, Payment_method> payments = (SortedList<string, Payment_method>)files_rw.Read_list("Paymethod Gateway", @"C:\Users\luis.martin\Downloads\", "Paymethod");
@@ -222,9 +212,9 @@ namespace PaymentGateway_Console
                             }
                         }
                         //Update the list
-                        paymethod_list = payments;
+                        Main_menu.paymethod_list = payments;
                         //Update the client list that is a txt file saved from the list
-                        files_rw.Write_file("Paymethod Gateway", paymethod_list, @"C:\Users\luis.martin\Downloads\");
+                        files_rw.Write_file("Paymethod Gateway", Main_menu.paymethod_list, @"C:\Users\luis.martin\Downloads\");
                         validoption = true;
                         break;
 
@@ -243,22 +233,20 @@ namespace PaymentGateway_Console
                                 Console.WriteLine("If you want to erase your information enter your password");
                                 string key_client = Console.ReadLine();
                                 int attempts = 0;
-                                bool correct_pas = false;
-                                while (!correct_pas | attempts < 3)
+                                while (attempts < 3)
                                 {
                                     if (item_C.Password1 == key_client)
                                     {
                                         payment_Actions.Delete_info(payment_id);
                                         Console.WriteLine("Personal Information Deleted");
-                                        files_rw.Write_file("Paymethod Gateway", paymethod_list, @"C:\Users\luis.martin\Downloads\");
-                                        correct_pas = true;
+                                        files_rw.Write_file("Paymethod Gateway", Main_menu.paymethod_list, @"C:\Users\luis.martin\Downloads\");
+                                        attempts += 3;
                                     }
                                     else
                                     {
                                         attempts++;
                                         Console.WriteLine($"Incorrect pasword, try again remain attempst {3 - attempts}");
                                         key_client = Console.ReadLine();
-                                        correct_pas = false;
                                     }
                                 }
                             }
@@ -277,12 +265,11 @@ namespace PaymentGateway_Console
                         {
                             if (item_C.UserName1 == user_name)
                             {
-                                //VAlidating the display of the data with the password with maximun 3 attempts
+                                //Validating the display of the data with the password with maximun 3 attempts
                                 Console.WriteLine("If you want to view your information enter your password");
                                 string key_client = Console.ReadLine();
                                 int attempts = 0;
-                                bool correct_pas = false;
-                                while (!correct_pas | attempts < 3)
+                                while (attempts < 3)
                                 {
                                     if (item_C.Password1 == key_client)
                                     {
@@ -290,14 +277,13 @@ namespace PaymentGateway_Console
                                         seller_actions.Show_info(item_C);
                                          payment_Actions.Show_info(payment_id); 
                                         Console.WriteLine("If is not correct deleted your data and add the new one");
-                                        correct_pas = true;
+                                        attempts += 3;
                                     }
                                     else
                                     {
                                         attempts++;
                                         Console.WriteLine($"Incorrect pasword, try again remain attempst {3 - attempts}");
                                         key_client = Console.ReadLine();
-                                        correct_pas = false;
                                     }
                                 }
                             }

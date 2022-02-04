@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PaymentGateway_Console
 {
-    class Transaction_actions : IActions_trans
+    class Transfer_actions : IActions_trans
     {
         public object Add_trans(int i, string str)
         {
@@ -18,18 +18,9 @@ namespace PaymentGateway_Console
             throw new NotImplementedException();
         }
 
-        public void Show_trans(Transaction transaction_data)
+        public void Show_trans(object obj)
         {
-            
-            Console.WriteLine(transaction_data.Display_inf());
-        }
-
-        public void Show_trans(object id_transaction)
-        {
-
-            string id = id_transaction as string;
-            var transaction = Main_menu.transaction_list[id];
-            Console.WriteLine(transaction.Display_inf());
+            throw new NotImplementedException();
         }
 
         public object Update_trans(object obj)

@@ -22,7 +22,7 @@ namespace PaymentGateway_Console
         public override string Display_inf()
         {
             string Display;
-            Display = $"Username:{UserName1}, Name: {First_N1} {Last_N1} \n{OS_Url1} ";
+            Display = $"Username:{UserName1}, Name: {First_N1} {Last_N1} \n Online Shopping Url:{OS_Url1} ";
             return Display;
         }
     }

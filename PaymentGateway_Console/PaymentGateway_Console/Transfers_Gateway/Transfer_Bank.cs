@@ -25,7 +25,7 @@ namespace PaymentGateway_Console
             if (type == "Sellor")
             {
                 List<int> id_used = new List<int>();
-                foreach (Transaction trans in Menu.transaction_list.Values)
+                foreach (Transaction trans in Main_menu.transaction_list.Values)
                 { id_used.Add(trans.Id_transaction); }
                 Random rnd = new Random();
                 int random_id = rnd.Next(100000, 999999);
@@ -46,7 +46,7 @@ namespace PaymentGateway_Console
             }
             else
             {
-                foreach (Transaction trans in Menu.transaction_list.Values)
+                foreach (Transaction trans in Main_menu.transaction_list.Values)
                 {
                     if (trans.Item1 == item)
                     { this.id_transfer = trans.Id_transaction; }
