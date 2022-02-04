@@ -1,0 +1,14 @@
+C:\Users\luis.martin\source\repos\PaymentGateway_Console - copia\PaymentGateway_Console\bin\Debug\PaymentGateway_Console.exe.config
+C:\Users\luis.martin\source\repos\PaymentGateway_Console - copia\PaymentGateway_Console\bin\Debug\PaymentGateway_Console.exe
+C:\Users\luis.martin\source\repos\PaymentGateway_Console - copia\PaymentGateway_Console\bin\Debug\PaymentGateway_Console.pdb
+C:\Users\luis.martin\source\repos\PaymentGateway_Console - copia\PaymentGateway_Console\obj\Debug\PaymentGateway_Programs.csproj.AssemblyReference.cache
+C:\Users\luis.martin\source\repos\PaymentGateway_Console - copia\PaymentGateway_Console\obj\Debug\PaymentGateway_Programs.csproj.CoreCompileInputs.cache
+C:\Users\luis.martin\source\repos\PaymentGateway_Console - copia\PaymentGateway_Console\obj\Debug\PaymentGateway_Console.exe
+C:\Users\luis.martin\source\repos\PaymentGateway_Console - copia\PaymentGateway_Console\obj\Debug\PaymentGateway_Console.pdb
+C:\Users\luis.martin\source\repos\PaymentGateway_Console\PaymentGateway_Console\bin\Debug\PaymentGateway_Console.exe.config
+C:\Users\luis.martin\source\repos\PaymentGateway_Console\PaymentGateway_Console\bin\Debug\PaymentGateway_Console.exe
+C:\Users\luis.martin\source\repos\PaymentGateway_Console\PaymentGateway_Console\bin\Debug\PaymentGateway_Console.pdb
+C:\Users\luis.martin\source\repos\PaymentGateway_Console\PaymentGateway_Console\obj\Debug\PaymentGateway_Programs.csproj.AssemblyReference.cache
+C:\Users\luis.martin\source\repos\PaymentGateway_Console\PaymentGateway_Console\obj\Debug\PaymentGateway_Programs.csproj.CoreCompileInputs.cache
+C:\Users\luis.martin\source\repos\PaymentGateway_Console\PaymentGateway_Console\obj\Debug\PaymentGateway_Console.exe
+C:\Users\luis.martin\source\repos\PaymentGateway_Console\PaymentGateway_Console\obj\Debug\PaymentGateway_Console.pdb
