@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StoryEbox_example5
 {
-    class Story:IComparable
+    class NoOfReadsComparator : IComparable
     {
         string name;
         string authorName;
@@ -15,7 +15,7 @@ namespace StoryEbox_example5
         int noOfLikes;
         int noOfReads;
 
-        public Story(string name, string authorName, string genre, int noOfChapters, int noOfLikes, int noOfReads)
+        public NoOfReadsComparator(string name, string authorName, string genre, int noOfChapters, int noOfLikes, int noOfReads)
         {
             this.name = name;
             this.authorName = authorName;
@@ -32,24 +32,10 @@ namespace StoryEbox_example5
         public int NoOfLikes { get => noOfLikes; set => noOfLikes = value; }
         public int NoOfReads { get => noOfReads; set => noOfReads = value; }
 
-        public static Story createStory(String detail) 
-        {
-            string[] storie_array = detail.Split(',');
-            string name = storie_array[0];
-            string authorName = storie_array[1];
-            string genre = storie_array[2];
-            int noOfChapters = Convert.ToInt32(storie_array[3]);
-            int noOfLikes = Convert.ToInt32(storie_array[4]);
-            int noOfReads = Convert.ToInt32(storie_array[5]);
-            Story story = new Story(name, authorName, genre, noOfChapters, noOfLikes, noOfReads);
-            return (story);
-        }
-
         public int CompareTo(object obj)
         {
-            Story comp_obj = (Story)obj;
-            return this.Name.CompareTo(comp_obj.Name);
+            NoOfReadsComparator comp_obj = (NoOfReadsComparator)obj;
+            return this.NoOfReads.CompareTo(comp_obj.NoOfReads);
         }
-
     }
 }
