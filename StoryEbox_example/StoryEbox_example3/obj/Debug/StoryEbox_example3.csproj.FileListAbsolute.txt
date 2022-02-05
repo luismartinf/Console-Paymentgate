@@ -1,0 +1,7 @@
+C:\Users\luis.martin\source\repos\StoryEbox_example\StoryEbox_example3\bin\Debug\StoryEbox_example3.exe.config
+C:\Users\luis.martin\source\repos\StoryEbox_example\StoryEbox_example3\bin\Debug\StoryEbox_example3.exe
+C:\Users\luis.martin\source\repos\StoryEbox_example\StoryEbox_example3\bin\Debug\StoryEbox_example3.pdb
+C:\Users\luis.martin\source\repos\StoryEbox_example\StoryEbox_example3\obj\Debug\StoryEbox_example3.csproj.AssemblyReference.cache
+C:\Users\luis.martin\source\repos\StoryEbox_example\StoryEbox_example3\obj\Debug\StoryEbox_example3.csproj.CoreCompileInputs.cache
+C:\Users\luis.martin\source\repos\StoryEbox_example\StoryEbox_example3\obj\Debug\StoryEbox_example3.exe
+C:\Users\luis.martin\source\repos\StoryEbox_example\StoryEbox_example3\obj\Debug\StoryEbox_example3.pdb
