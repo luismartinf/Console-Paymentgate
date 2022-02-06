@@ -6,11 +6,17 @@ using System.Threading.Tasks;
 
 namespace PaymentGateway_Console
 {
-    //Field and Properties for the Sellers inheritace from the class Client
-    class Seller : Client
+    //Field and Properties for the Sellers inheritace from the class Customer
+    class Seller : Customer
     {
         //Field
         string os_Url;
+
+        public Seller(string userName, string first_N, string last_N, string add_date, string password, string email,string os_Url):base(userName, first_N, last_N,add_date, password, email)
+        {
+            this.os_Url = os_Url;
+           
+        }
 
         public string OS_Url1 { get => os_Url; set => os_Url = value; }
 

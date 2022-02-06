@@ -9,15 +9,15 @@ namespace PaymentGateway_Console
     class Menu_paymethod
     {
   
-        //menu of the client
-        public static void Menu_clients()
-        //read the database of clients
+        //menu of the customer
+        public static void Menu_customers()
+        //read the database of customers
         {
             Read_write_files files_rw = new Read_write_files();
-            Client_BO client_actions = new Client_BO();
+            Customer_BO customer_actions = new Customer_BO();
             Payment_BO payment_Actions = new Payment_BO();
             //path where is saved the file  (@"C:\Users\luis.martin\Downloads)
-            List<Client> clients = (List<Client>)files_rw.Read_list("Clients Gateway", @"C:\Users\luis.martin\Downloads\", "Clients");
+            List<Customer> customers = (List<Customer>)files_rw.Read_list("Customers Gateway", @"C:\Users\luis.martin\Downloads\", "Customers");
             SortedList<string, Payment_method> payments = (SortedList<string, Payment_method>)files_rw.Read_list("Paymethod Gateway", @"C:\Users\luis.martin\Downloads\", "Paymethod");
             Console.WriteLine($"If you need to add your information type A");
             Console.WriteLine($"If you saved your information and want delete it type D");
@@ -34,16 +34,16 @@ namespace PaymentGateway_Console
                         Console.WriteLine("Enter your username");
                         string user_name = Console.ReadLine();
                         //Check if the information is correct otherwise reenter the information
-                        foreach (var item_C in clients)
+                        foreach (var item_C in customers)
                         {
                             if (item_C.UserName1 == user_name)
                             {
                                 while (!correct_data)
                                 {                            
                                     Console.WriteLine("This is your personal information");
-                                    client_actions.Show_info(item_C);
+                                    customer_actions.Show_info(item_C);
                                     Console.WriteLine("Add the new payment method");
-                                    Payment_method new_pay = (Payment_method)payment_Actions.Add_info(item_C.UserName1,"Client");
+                                    Payment_method new_pay = (Payment_method)payment_Actions.Add_info(item_C.UserName1,"Customer");
                                     payment_Actions.Show_info(new_pay);
                                     DateTime tdy = DateTime.Now;
                                     Console.WriteLine($"Your data saved {tdy} is correct Yes/No?");
@@ -64,30 +64,30 @@ namespace PaymentGateway_Console
                         }  
                         //Update the list
                         Main_menu.paymethod_list = payments;
-                        //Update the client list that is a txt file saved from the list
+                        //Update the customer list that is a txt file saved from the list
                         files_rw.Write_file("Paymethod Gateway", Main_menu.paymethod_list, @"C:\Users\luis.martin\Downloads\");
                         validoption = true;
                         break;
 
                     case 'D':
-                        // Search the client information
+                        // Search the customer information
                         Console.WriteLine("Enter your username");
                         user_name = Console.ReadLine();
                         Console.WriteLine("Enter your payment_id (username + last 4 digits of the card)");
                         string payment_id = Console.ReadLine();
-                        foreach (var item_C in clients)
+                        foreach (var item_C in customers)
                         {
                             if (item_C.UserName1 == user_name)
                             {                                                                  
                                 //Confirm to erase the information with the password with 3 attempts 
                                 Console.WriteLine("If you want to erase your information enter your password");
-                                string key_client = Console.ReadLine();
+                                string key_customer = Console.ReadLine();
                                 int attempts = 0;
                                 while (attempts < 3)
                                 {
-                                    if (item_C.Password1 == key_client)
+                                    if (item_C.Password1 == key_customer)
                                     {
-                                        //Delete client information
+                                        //Delete customer information
                                         payment_Actions.Delete_info(payment_id);
                                         Console.WriteLine("Payment method deleted");
                                         files_rw.Write_file("Paymethod Gateway", Main_menu.paymethod_list, @"C:\Users\luis.martin\Downloads\");
@@ -97,7 +97,7 @@ namespace PaymentGateway_Console
                                     {
                                         attempts++;
                                         Console.WriteLine($"Incorrect pasword, try again remain attempst {3 - attempts}");
-                                        key_client = Console.ReadLine();
+                                        key_customer = Console.ReadLine();
                                     }
                                 }
                             }
@@ -112,21 +112,21 @@ namespace PaymentGateway_Console
                         user_name = Console.ReadLine();
                         Console.WriteLine("Enter your payment_id(username + last 4 digits of the card)");
                         payment_id = Console.ReadLine();
-                        // Find client information to display
-                        foreach (var item_C in clients)
+                        // Find customer information to display
+                        foreach (var item_C in customers)
                         {
                             if (item_C.UserName1 == user_name)
                             {
                                 //view the information
                                 Console.WriteLine("If you want to view your information enter your password");
-                                string key_client = Console.ReadLine();
+                                string key_customer = Console.ReadLine();
                                 int attempts = 0;
                                 while (attempts < 3)
                                 {
-                                    if (item_C.Password1 == key_client)
+                                    if (item_C.Password1 == key_customer)
                                     {
                                         Console.WriteLine($"This is your information saved {item_C.Add_date1}");
-                                        client_actions.Show_info(item_C);
+                                        customer_actions.Show_info(item_C);
                                         payment_Actions.Show_info(payment_id); 
                                         Console.WriteLine("If is not correct deleted your data and add the new one");
                                         attempts += 3;
@@ -135,7 +135,7 @@ namespace PaymentGateway_Console
                                     {
                                     attempts++;
                                     Console.WriteLine($"Incorrect pasword, try again remain attempst {3 - attempts}");
-                                    key_client = Console.ReadLine();
+                                    key_customer = Console.ReadLine();
                                     }
 
                                 }
@@ -145,7 +145,7 @@ namespace PaymentGateway_Console
                         break;
                     default:
                         Console.WriteLine("Option not exist, reenter the value");
-                        Console.WriteLine($"If you are new client, you need to add your information type A");
+                        Console.WriteLine($"If you are new customer, you need to add your information type A");
                         Console.WriteLine($"If you saved your information and want delete it type D");
                         Console.WriteLine($"If you saved your information and want to view type V");
                         options = Convert.ToChar(Console.ReadLine());
@@ -213,7 +213,7 @@ namespace PaymentGateway_Console
                         }
                         //Update the list
                         Main_menu.paymethod_list = payments;
-                        //Update the client list that is a txt file saved from the list
+                        //Update the customer list that is a txt file saved from the list
                         files_rw.Write_file("Paymethod Gateway", Main_menu.paymethod_list, @"C:\Users\luis.martin\Downloads\");
                         validoption = true;
                         break;
@@ -231,11 +231,11 @@ namespace PaymentGateway_Console
                             {
                                 // Validate with the password maximun in three attempts to erase the data
                                 Console.WriteLine("If you want to erase your information enter your password");
-                                string key_client = Console.ReadLine();
+                                string key_customer = Console.ReadLine();
                                 int attempts = 0;
                                 while (attempts < 3)
                                 {
-                                    if (item_C.Password1 == key_client)
+                                    if (item_C.Password1 == key_customer)
                                     {
                                         payment_Actions.Delete_info(payment_id);
                                         Console.WriteLine("Personal Information Deleted");
@@ -246,7 +246,7 @@ namespace PaymentGateway_Console
                                     {
                                         attempts++;
                                         Console.WriteLine($"Incorrect pasword, try again remain attempst {3 - attempts}");
-                                        key_client = Console.ReadLine();
+                                        key_customer = Console.ReadLine();
                                     }
                                 }
                             }
@@ -267,11 +267,11 @@ namespace PaymentGateway_Console
                             {
                                 //Validating the display of the data with the password with maximun 3 attempts
                                 Console.WriteLine("If you want to view your information enter your password");
-                                string key_client = Console.ReadLine();
+                                string key_customer = Console.ReadLine();
                                 int attempts = 0;
                                 while (attempts < 3)
                                 {
-                                    if (item_C.Password1 == key_client)
+                                    if (item_C.Password1 == key_customer)
                                     {
                                         Console.WriteLine($"This is your information saved {item_C.Add_date1}");
                                         seller_actions.Show_info(item_C);
@@ -283,7 +283,7 @@ namespace PaymentGateway_Console
                                     {
                                         attempts++;
                                         Console.WriteLine($"Incorrect pasword, try again remain attempst {3 - attempts}");
-                                        key_client = Console.ReadLine();
+                                        key_customer = Console.ReadLine();
                                     }
                                 }
                             }
@@ -292,7 +292,7 @@ namespace PaymentGateway_Console
                         break;
                     default:
                         Console.WriteLine("Option not exist, reenter the value");
-                        Console.WriteLine($"If you are new client, you need to add your information type A");
+                        Console.WriteLine($"If you are new customer, you need to add your information type A");
                         Console.WriteLine($"If you saved your information and want delete it type D");
                         Console.WriteLine($"If you saved your information and want new purchase type P");
                         Console.WriteLine($"If you saved your information and want to view type V");

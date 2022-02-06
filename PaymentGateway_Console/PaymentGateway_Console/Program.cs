@@ -14,20 +14,20 @@ namespace PaymentGateway_Console
         {
             //Display Options to select the role and activate the corresponding menu
             Console.WriteLine("Hello , Welcome to the payment gateway ");
-            Console.WriteLine("Type if you are Client, Seller or Manager");
+            Console.WriteLine("Type if you are Customer, Seller or Manager");
             string role = Console.ReadLine();
             bool ValidRole = false;
             while (!ValidRole)
             {
                 switch (role)
                 {
-                    case "Client":
-                        Console.WriteLine("Select if you want to do actions for a client write C or payment methods of existing client write PMC");
+                    case "Customer":
+                        Console.WriteLine("Select if you want to do actions for a customer write C or payment methods of existing customer write PMC");
                         string menu_CorPMC =Console.ReadLine();
                         if (menu_CorPMC == "C")
-                        { Main_menu.Menu_clients(); }
+                        { Main_menu.Menu_customers(); }
                         else if (menu_CorPMC == "PMC")
-                        { Menu_paymethod.Menu_clients(); }    
+                        { Menu_paymethod.Menu_customers(); }    
                         ValidRole = true;
                         break;
                     case "Seller":
@@ -45,7 +45,7 @@ namespace PaymentGateway_Console
                         break;
                     default:
                         Console.WriteLine("Role is Wrong, reenter the value");
-                        Console.WriteLine("Write if you are Client, Seller or Manager");
+                        Console.WriteLine("Write if you are Customer, Seller or Manager");
                         role = Console.ReadLine();
                         ValidRole = false;
                         break;

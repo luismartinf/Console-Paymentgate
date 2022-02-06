@@ -27,17 +27,30 @@ namespace PaymentGateway_Console
         string city;
         string state;
         string cp;
+
+        public Payment_method(string user_name, string user_type, string type_card, string card_N, string l4_digit,  string country, string add_1, string add_2, string state, string cp, string exp_date = "01/01/2022 01:00:00 a. m.", string cvv = "000", string city = "")
+        {
+            this.user_type = user_type;
+            this.type_card = type_card;
+            this.card_N = Convert.ToInt64(card_N);
+            this.exp_date = DateTime.Parse(exp_date);
+            this.cvv = Convert.ToInt16(cvv);
+            this.l4_digit = Convert.ToInt64(l4_digit);
+            this.user_name = user_name;
+            this.country = country;
+            this.add_1 = add_1;
+            this.add_2 = add_2;
+            this.city = city;
+            this.state = state;
+            this.cp = cp;
+        }
+
         
+            
+           
         //Initial data for values that are not allways retrived in the case of city in some cases doesn´t exist,
         //Exp_date and CVV aren´t relevant for the seller to use the inheritance of the class they have dummy values
-        public Payment_method( )
-        {
-          
-            City1 = "";
-            Exp_date1 = DateTime.Now;
-            CVV1 = 000;
-
-        }
+       
 
 
         public string Country1 { get => country; set => country = value; }
@@ -55,10 +68,10 @@ namespace PaymentGateway_Console
         public string User_type1 { get => user_type; set => user_type = value; }
         public string User_name1 { get => user_name; set => user_name = value; }
 
-        //Override method to display the data of the Client/Seller
+        //Override method to display the data of the Customer/Seller
         public override string ToString()
         {
-            string writef = $"{User_name1},{User_type1},{Type_card1},{Card_N1},{L4_digit1},{Exp_date1},{CVV1},{Country1},{Add_11},{Add_21},{City1},{State1},{CP1}";
+            string writef = $"{User_name1},{User_type1},{Type_card1},{Card_N1},{L4_digit1},{Country1},{Add_11},{Add_21},{State1},{CP1},{Exp_date1},{CVV1},{City1}";
             return writef;
         }
         public string Display_inf()

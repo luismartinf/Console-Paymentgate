@@ -10,11 +10,11 @@ namespace PaymentGateway_Console
     {
         public void Menu_managers()
         {  //   Menu for the managers
-            //   Read and Display all the information of the three databases Client, Sellers and Transactions in a object array
+            //   Read and Display all the information of the three databases Customer, Sellers and Transactions in a object array
             Read_write_files files_rw = new Read_write_files();
             Main_menu.Gateway = new object[4][];
-            List<Client> clients = (List<Client>)files_rw.Read_list("Clients Gateway", @"C:\Users\luis.martin\Downloads\", "Clients");
-            Main_menu.Gateway[0] = clients;
+            List<Customer> customers = (List<Customer>)files_rw.Read_list("Customers Gateway", @"C:\Users\luis.martin\Downloads\", "Customers");
+            Main_menu.Gateway[0] = customers;
             List<Seller> sellers = (List<Seller>)files_rw.Read_list("Sellers Gateway", @"C: \Users\luis.martin\Downloads\", "Sellers");
             Main_menu.Gateway[1] = sellers;
             Dictionary<string, Transaction> transactions = (Dictionary<string, Transaction>)files_rw.Read_list("Transactions Gateway", @"C: \Users\luis.martin\Downloads\", "Transactions");

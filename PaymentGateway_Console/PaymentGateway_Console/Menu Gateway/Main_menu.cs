@@ -8,22 +8,22 @@ using System.Threading.Tasks;
 
 namespace PaymentGateway_Console
 
-{   //Menu to display the options of the clients
+{   //Menu to display the options of the customers
     class Main_menu
     {
-        //Collections to saved the information of clients, Sellers and purchases in txt iles
+        //Collections to saved the information of customers, Sellers and purchases in txt iles
         public static object[] Gateway;
         public static List<Seller> sellers_list;
-        public static List<Client> clients_list;
-        public static Dictionary <string,Transaction>transaction_list;
+        public static List<Customer> customers_list;
+        public static Dictionary <int,Transaction>transaction_list;
         public static SortedList<string,Payment_method> paymethod_list;
-        public static SortedList<string, Transfer_Bank> transfer_list;
+        public static SortedList<int, Transfer_Bank> transfer_list;
 
-        //menu of the client
-        public static void Menu_clients()
+        //menu of the customer
+        public static void Menu_customers()
         {
-            Client_menu client_Menu = new Client_menu();
-            client_Menu.Menu_clients();
+            Customer_menu customer_Menu = new Customer_menu();
+            customer_Menu.Menu_customers();
         }
 
         //Menu for the seller 

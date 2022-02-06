@@ -9,26 +9,38 @@ namespace PaymentGateway_Console
     class Transfer_Bank
     {
         //Fields
-        int id_transfer;
+        string username;
         double amount;
         string type_transfer;
         DateTime day_transfer;
         public Transfer_Bank()
         {
             
-            DateTime day_transfer = DateTime.Now;
+           
         }
+
+        public Transfer_Bank(string user_n, string amount, string type_transfer, string day_transfer)
+        {
+            this.username = user_n;
+            this.amount = Convert.ToDouble(amount);
+            this.type_transfer = type_transfer;
+            this.day_transfer = DateTime.Parse( day_transfer);
+        }
+
+        //Methods
+        public void Addtime()
+        { Day_transfer = DateTime.Now; }
 
         //Assign id for transaction
         public int Id_transfer1(int item, string type)
         {
+            Random rnd = new Random();
+            int random_id = rnd.Next(100000, 999999);
             if (type == "Sellor")
             {
                 List<int> id_used = new List<int>();
-                foreach (Transaction trans in Main_menu.transaction_list.Values)
-                { id_used.Add(trans.Id_transaction); }
-                Random rnd = new Random();
-                int random_id = rnd.Next(100000, 999999);
+                foreach (int trans in Main_menu.transaction_list.Keys)
+                { id_used.Add(trans); }
                 bool validid = false;
                 while (!validid)
                 {
@@ -39,30 +51,35 @@ namespace PaymentGateway_Console
                     }
                     else { validid = true; }
                 }
-
-                this.id_transfer = random_id;
                 Type_transfer = "Deposit";
-                return id_transfer;
             }
             else
             {
-                foreach (Transaction trans in Main_menu.transaction_list.Values)
+                foreach (KeyValuePair<int, Transaction> trans in Main_menu.transaction_list)
                 {
-                    if (trans.Item1 == item)
-                    { this.id_transfer = trans.Id_transaction; }
+                    if (trans.Value.Item1 == item)
+                    { random_id = trans.Key; }
 
                 }
                 Type_transfer = "Devolution";
-                return id_transfer;
             }
+            return random_id;
         }
 
-        public int Id_transfer { get => id_transfer; set => id_transfer = value; }
-        public double Amount { get => amount; set => amount = value; }
-        public string Type_transfer { get => type_transfer; set => type_transfer = value; }
+        public override string ToString()
+        {
+            string writef = $"{Username},{Amount},{Type_transfer},{Day_transfer }";
+            return writef;
+        }
 
         //Properties
+        public double Amount { get => amount; set => amount = value; }
+        public string Type_transfer { get => type_transfer; set => type_transfer = value; }
+        public DateTime Day_transfer { get => day_transfer; set => day_transfer = value; }
+        public string Username { get => username; set => username = value; }
 
-        //Methods
+        
+
+       
     }
 }

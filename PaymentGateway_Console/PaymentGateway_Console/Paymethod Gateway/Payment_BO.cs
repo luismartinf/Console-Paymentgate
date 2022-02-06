@@ -12,7 +12,8 @@ namespace PaymentGateway_Console
         public object Add_info(object user_name, string type )
         {
             string user = user_name as string;
-            Payment_method payment = new Payment_method();
+            string user_n = "", user_type = "", type_card = "", card_N = "", l4_digit = "", country = "", add_1 = "", add_2 = "", state = "", cp = "", exp_date = "01/01/2022 01:00:00 a. m.", cvv = "000", city = "";
+            Payment_method payment = new Payment_method( user_n,  user_type,  type_card,  card_N,  l4_digit,  country,  add_1,  add_2,  state,  cp,  exp_date,  cvv,  city );
             payment.User_type1 = type;
             Console.WriteLine("Country");
             payment.Country1 = Console.ReadLine();
@@ -54,7 +55,7 @@ namespace PaymentGateway_Console
             return payment;
         }
 
-        //Method to delete the information saved in the payment method list from a client or sellor
+        //Method to delete the information saved in the payment method list from a customer or sellor
         public void Delete_info(object id_payment)
         {
             SortedList<string, Payment_method> paymethods = Main_menu.paymethod_list;
