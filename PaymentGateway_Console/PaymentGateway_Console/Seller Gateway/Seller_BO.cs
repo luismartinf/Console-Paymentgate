@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PaymentGateway_Console
 {
-    // class with the actions of a seller: Add/ Delete/ View and Make a new transaction(shipping)
+    // class with the actions of a seller: Add/ Delete/ View
     class Seller_BO : IActions_info
     {
 

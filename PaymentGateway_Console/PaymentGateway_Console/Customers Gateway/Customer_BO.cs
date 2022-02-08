@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PaymentGateway_Console
 {
-    // class with the actions of a customer: Add/ Delete/ View and Make a new transaction(purchase)
+    // class with the actions of a customer: Add/ Delete/ View 
     class Customer_BO:IActions_info
     {
         

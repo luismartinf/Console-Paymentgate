@@ -17,9 +17,10 @@ namespace PaymentGateway_Console
         DateTime time_start;
         string status;
         DateTime time_finish;
+        string notes;
 
         
-        public Transaction(string username, string type_trans, string amount, string item, string time_start, string status = "Payed", string time_finish = "01/01/2022 01:00:00 a. m.")
+        public Transaction(string username, string type_trans, string amount, string item, string time_start, string status = "Payed", string time_finish = "01/01/2022 01:00:00 a. m.", string notes = "")
         {
             this.username = username;
             this.type_trans = type_trans;
@@ -28,43 +29,45 @@ namespace PaymentGateway_Console
             this.time_start = DateTime.Parse(time_start);
             this.status = status;
             this.time_finish = DateTime.Parse(time_finish);
+            this.notes = notes;
         }
 
         public void Addtime()
         { T_start = DateTime.Now; }
 
         //Assign id for transaction
-        public int Id_transaction1 (int item, string type)
+        public long Id_transaction1 (int item, string type)
         {
             Random rnd = new Random();
-            int random_id = rnd.Next(100000, 999999);
+            long random_id = rnd.Next(100000000, 999999999);
             if (type == "Customer")
             {
-                List<int> id_used = new List<int>();
-                foreach (int trans in Main_menu.transaction_list.Keys)
+                List<long> id_used = new List<long>();
+                foreach (long trans in Main_menu.transaction_list.Keys)
                 { id_used.Add(trans); }
                 bool validid = false;
                 while (!validid)
                 {
                     if (id_used.Contains(random_id))
                     {
-                        random_id = rnd.Next(100000, 999999);
+                        random_id = rnd.Next(100000000, 999999999);
                         validid = false;
                     }
                     else { validid = true; }
                 }
-
-                Type_trans = "Purchase";
+                //ad a 1 in the beguining if it is customer or a 2 if its seller
+                random_id += 1000000000;
             }
             else
             {
-                foreach (KeyValuePair<int, Transaction> trans in Main_menu.transaction_list)
+                foreach (KeyValuePair<long, Transaction> trans in Main_menu.transaction_list)
                 {
                     if (trans.Value.Item == item)
                     { random_id = trans.Key; }
 
                 }
-                Type_trans = "Shipping";
+                //ad a 1 in the beguining if it is customer or a 2 if its seller
+                random_id += 1000000000;
             }
             return random_id;
         }
@@ -72,8 +75,15 @@ namespace PaymentGateway_Console
         public override string ToString()
         {
 
-            string writef = $"{Username},{Type_trans},{Amount1},{Item1 },{ T_start},{Status},{T_finish}";
+            string writef = $"{Username},{Type_trans},{Amount1},{Item1 },{ T_start},{Status},{T_finish},{Notes}";
             return writef;
+        }
+
+        public  string Display_inf()
+        {
+            string Display;
+            Display = $"Username:{Username}, Type of transaction: {Type_trans}\n The transaction was made on {T_start} for an amount of  {Amount1} USD and the status is:{Status} \n [Notes: Item_transaction{Item}\n{ Notes}]";
+            return Display;
         }
 
         //properties of the transactions
@@ -84,5 +94,7 @@ namespace PaymentGateway_Console
         public string Status { get => status; set => status = value; }
         public DateTime T_finish { get => time_finish; set => time_finish = value; }
         public string Username { get => username; set => username = value; }
+        public string Notes { get => notes; set => notes = value; }
+      
     }
 }

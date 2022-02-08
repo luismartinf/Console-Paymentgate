@@ -17,8 +17,8 @@ namespace PaymentGateway_Console
             Customer_BO customer_actions = new Customer_BO();
             Payment_BO payment_Actions = new Payment_BO();
             //path where is saved the file  (@"C:\Users\luis.martin\Downloads)
-            List<Customer> customers = (List<Customer>)files_rw.Read_list("Customers Gateway", @"C:\Users\luis.martin\Downloads\", "Customers");
-            SortedList<string, Payment_method> payments = (SortedList<string, Payment_method>)files_rw.Read_list("Paymethod Gateway", @"C:\Users\luis.martin\Downloads\", "Paymethod");
+            List<Customer> customers = (List<Customer>)files_rw.Read_list("Customers Gateway",Main_menu.fullpath, "Customers");
+            SortedList<string, Payment_method> payments = (SortedList<string, Payment_method>)files_rw.Read_list("Paymethod Gateway",Main_menu.fullpath, "Paymethod");
             Console.WriteLine($"If you need to add your information type A");
             Console.WriteLine($"If you saved your information and want delete it type D");
             Console.WriteLine($"If you saved your information and want to view type V");
@@ -65,7 +65,7 @@ namespace PaymentGateway_Console
                         //Update the list
                         Main_menu.paymethod_list = payments;
                         //Update the customer list that is a txt file saved from the list
-                        files_rw.Write_file("Paymethod Gateway", Main_menu.paymethod_list, @"C:\Users\luis.martin\Downloads\");
+                        files_rw.Write_file("Paymethod Gateway", Main_menu.paymethod_list,Main_menu.fullpath);
                         validoption = true;
                         break;
 
@@ -90,7 +90,7 @@ namespace PaymentGateway_Console
                                         //Delete customer information
                                         payment_Actions.Delete_info(payment_id);
                                         Console.WriteLine("Payment method deleted");
-                                        files_rw.Write_file("Paymethod Gateway", Main_menu.paymethod_list, @"C:\Users\luis.martin\Downloads\");
+                                        files_rw.Write_file("Paymethod Gateway", Main_menu.paymethod_list,Main_menu.fullpath);
                                         attempts += 3;
                                     }
                                     else
@@ -164,7 +164,7 @@ namespace PaymentGateway_Console
             Payment_BO payment_Actions = new Payment_BO();
             //path where is saved the file  (@"C:\Users\luis.martin\Downloads)
             List<Seller> sellers = (List<Seller>)files_rw.Read_list("Sellers Gateway", @"C: \Users\luis.martin\Downloads\", "Sellers");
-            SortedList<string, Payment_method> payments = (SortedList<string, Payment_method>)files_rw.Read_list("Paymethod Gateway", @"C:\Users\luis.martin\Downloads\", "Paymethod");
+            SortedList<string, Payment_method> payments = (SortedList<string, Payment_method>)files_rw.Read_list("Paymethod Gateway",Main_menu.fullpath, "Paymethod");
 
             // Sellect one of the four possible actions Add/ Delete/ Shipping/ View for a seller and validate 
             Console.WriteLine($"If you are new seller, you need to add your information type A");
@@ -214,7 +214,7 @@ namespace PaymentGateway_Console
                         //Update the list
                         Main_menu.paymethod_list = payments;
                         //Update the customer list that is a txt file saved from the list
-                        files_rw.Write_file("Paymethod Gateway", Main_menu.paymethod_list, @"C:\Users\luis.martin\Downloads\");
+                        files_rw.Write_file("Paymethod Gateway", Main_menu.paymethod_list,Main_menu.fullpath);
                         validoption = true;
                         break;
 
@@ -239,7 +239,7 @@ namespace PaymentGateway_Console
                                     {
                                         payment_Actions.Delete_info(payment_id);
                                         Console.WriteLine("Personal Information Deleted");
-                                        files_rw.Write_file("Paymethod Gateway", Main_menu.paymethod_list, @"C:\Users\luis.martin\Downloads\");
+                                        files_rw.Write_file("Paymethod Gateway", Main_menu.paymethod_list,Main_menu.fullpath);
                                         attempts += 3;
                                     }
                                     else

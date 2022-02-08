@@ -75,7 +75,7 @@ namespace PaymentGateway_Console
 
                     case "Transaction Gateway":
 
-                        Dictionary<int, Transaction> list_addedt = new Dictionary<int, Transaction>();
+                        Dictionary<long, Transaction> list_addedt = new Dictionary<long, Transaction>();
                         for (int n_customers = 0; n_customers < len_customers; n_customers++)
                         {
                             // string array with each value for all the fields of a paymethod
@@ -83,7 +83,7 @@ namespace PaymentGateway_Console
 
                             //reading and creating the SortedList for all the paymethods
                            Transaction trans_s = new Transaction(customer_added[1], customer_added[2], customer_added[3], customer_added[4], customer_added[5], customer_added[6], customer_added[7]);
-                            list_addedt.Add(Convert.ToInt32(customer_added[0]), trans_s);
+                            list_addedt.Add(Convert.ToInt64(customer_added[0]), trans_s);
                         }
                         //Update paymethod list
                         Main_menu.transaction_list = list_addedt;
@@ -91,15 +91,15 @@ namespace PaymentGateway_Console
 
                     case "Transfer Gateway":
 
-                        SortedList<int, Transfer_Bank> list_addedtf = new SortedList<int, Transfer_Bank>();
+                        SortedList<long, Transfer_Bank> list_addedtf = new SortedList<long, Transfer_Bank>();
                         for (int n_customers = 0; n_customers < len_customers; n_customers++)
                         {
                             // string array with each value for all the fields of a paymethod
                             string[] customer_added = customers_file[n_customers].Split(',');
 
                             //reading and creating the SortedList for all the paymethods
-                            Transfer_Bank transfer_s = new Transfer_Bank(customer_added[1], customer_added[2], customer_added[3], customer_added[4]);
-                            list_addedtf.Add(Convert.ToInt32(customer_added[0]), transfer_s);
+                            Transfer_Bank transfer_s = new Transfer_Bank(customer_added[1], customer_added[2], customer_added[3], customer_added[4], customer_added[5]);
+                            list_addedtf.Add(Convert.ToInt64(customer_added[0]), transfer_s);
                         }
                         //Update paymethod list
                         Main_menu.transfer_list = list_addedtf;
@@ -132,12 +132,12 @@ namespace PaymentGateway_Console
                 }
                 else if (data_list == "Transaction")
                 {
-                    Dictionary<string, Transaction> list_added = new Dictionary<string, Transaction>();
+                    Dictionary<long, Transaction> list_added = new Dictionary<long, Transaction>();
                     return list_added;
                 }
                 else  
                 {
-                    SortedList<string, Transfer_Bank> list_added = new SortedList<string, Transfer_Bank>();
+                    SortedList<long, Transfer_Bank> list_added = new SortedList<long, Transfer_Bank>();
                     return list_added;
                 }
             }
@@ -177,23 +177,23 @@ namespace PaymentGateway_Console
             }
         }
         //Method to write the Transfers txt file
-        public void Write_file(string text_file, SortedList<int, Transfer_Bank> transfers_saved, string filepath)
+        public void Write_file(string text_file, SortedList<long, Transfer_Bank> transfers_saved, string filepath)
         {
             string path = filepath + text_file;
             using (TextWriter tw = new StreamWriter(path))
             {
-                foreach (KeyValuePair<int, Transfer_Bank> trf_s in transfers_saved)
+                foreach (KeyValuePair<long, Transfer_Bank> trf_s in transfers_saved)
                 { tw.WriteLine($"{trf_s.Key},{trf_s.Value}"); }
             }
         }
 
         //Method to write the Transactions txt file
-        public void Write_file(string text_file, Dictionary<int, Transaction> trans_saved, string filepath)
+        public void Write_file(string text_file, Dictionary<long, Transaction> trans_saved, string filepath)
         {
             string path = filepath + text_file;
             using (TextWriter tw = new StreamWriter(path))
             {
-                foreach (KeyValuePair<int, Transaction> trans_s in trans_saved)
+                foreach (KeyValuePair<long, Transaction> trans_s in trans_saved)
                 { tw.WriteLine($"{trans_s.Key},{trans_s.Value}"); }
             }
         }

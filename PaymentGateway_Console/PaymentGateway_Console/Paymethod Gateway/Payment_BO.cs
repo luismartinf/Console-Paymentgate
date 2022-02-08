@@ -17,7 +17,7 @@ namespace PaymentGateway_Console
             payment.User_type1 = type;
             Console.WriteLine("Country");
             payment.Country1 = Console.ReadLine();
-            Console.WriteLine("Type Card");
+            Console.WriteLine("Type Card (Eg. Visa/ Master Card/...)");
             payment.Type_card1 = Console.ReadLine();
             Console.WriteLine("16 digits of Card Number");
             payment.Card_N1 = Convert.ToInt64(Console.ReadLine());
@@ -55,7 +55,7 @@ namespace PaymentGateway_Console
             return payment;
         }
 
-        //Method to delete the information saved in the payment method list from a customer or sellor
+        //Method to delete the information saved in the payment method list from a customer or seller
         public void Delete_info(object id_payment)
         {
             SortedList<string, Payment_method> paymethods = Main_menu.paymethod_list;

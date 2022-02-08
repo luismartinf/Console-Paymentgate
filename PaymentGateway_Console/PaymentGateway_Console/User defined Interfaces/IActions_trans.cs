@@ -8,9 +8,9 @@ namespace PaymentGateway_Console
 {
     interface IActions_trans
     {
-        object Add_trans(int i, string str);
-        object Update_trans(object obj);
+        object Add_trans(long item, string str, string user_name);
+        void Update_trans(object obj, string phase);
         void Show_trans(object obj);
-        void Cancel_trans(object obj);
+        void Cancel_trans(object obj, string type_user);
     }
 }

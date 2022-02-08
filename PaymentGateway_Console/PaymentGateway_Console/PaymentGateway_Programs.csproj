@@ -54,7 +54,7 @@
     <Compile Include="Paymethod Gateway\Payment_BO.cs" />
     <Compile Include="Paymethod Gateway\Payment_method.cs" />
     <Compile Include="User defined Interfaces\IActions_info.cs" />
-    <Compile Include="Transactions Gateway\Transaction_actions.cs" />
+    <Compile Include="Transactions Gateway\Transaction_BO.cs" />
     <Compile Include="Transactions Gateway\Transaction.cs" />
     <Compile Include="Menu Gateway\Main_menu.cs" />
     <Compile Include="Seller Gateway\Seller_BO.cs" />
