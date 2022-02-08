@@ -32,7 +32,7 @@ namespace PaymentGateway_Console
                     checks++;
                     onenumber = false;
                 }
-                else if (Char.IsSymbol(pas) && onesymbol == true)
+                else if (!Char.IsLetterOrDigit(pas) && onesymbol == true)
                 {
                     checks++;
                     onesymbol = false;

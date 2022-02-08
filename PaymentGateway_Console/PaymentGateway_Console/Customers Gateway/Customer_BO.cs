@@ -15,7 +15,7 @@ namespace PaymentGateway_Console
         public object Add_info(object obj, string type = "Customer")
         {
             // Retrieve information from the customer saved in the customer txt file
-            string userName="", first_N = "", last_N = "", add_date = "", password = "", email = "";
+            string userName="", first_N = "", last_N = "", add_date = "01/01/2022 01:00:00 a. m.", password = "", email = "";
             Customer customer = new Customer(userName, first_N, last_N, add_date, password, email);
 
             //Generate a user name and check if it doesnot exist
@@ -55,7 +55,7 @@ namespace PaymentGateway_Console
                 validpassword = Valpassword.ValidatePassword(val_password);
                 if (validpassword == true)
                 {
-                    Console.Write("Valid password");
+                    Console.Write("Valid password \n");
                     customer.Password1 = val_password;
                 }
                 else
@@ -66,11 +66,10 @@ namespace PaymentGateway_Console
                         $"3.The password should contain at least one special character.\n" +
                         $"4.The password should not contain any whitespaces. \n" +
                         $"5.The length of the password should more than 7 characters.");
-                    val_password = Console.ReadLine();
+                        val_password = Console.ReadLine();
                 }
             }
                 
-
             //Rest of information
             Console.WriteLine("Email");
             customer.Email1 = Console.ReadLine(); 

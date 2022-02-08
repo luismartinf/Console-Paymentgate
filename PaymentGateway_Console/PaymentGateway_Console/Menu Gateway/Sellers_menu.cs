@@ -14,10 +14,10 @@ namespace PaymentGateway_Console
             Seller_BO seller_actions = new Seller_BO();
             Payment_BO payment_Actions = new Payment_BO();
             Transaction_BO trans_Actions = new Transaction_BO();
-            Transfer_actions transfer_Actions = new Transfer_actions();
+            Transfer_BO transfer_Actions = new Transfer_BO();
             //path where is saved the file  (@"C:\Users\luis.martin\Downloads)
             //Read the file with the Sellers information
-            List<Seller> sellers = (List<Seller>)files_rw.Read_list("Sellers Gateway", @"C: \Users\luis.martin\Downloads\", "Sellers");
+            List<Seller> sellers = (List<Seller>)files_rw.Read_list("Sellers Gateway",Main_menu.fullpath, "Sellers");
             SortedList<string, Payment_method> payments = (SortedList<string, Payment_method>)files_rw.Read_list("Paymethod Gateway",Main_menu.fullpath, "Paymethod");
             Dictionary<long, Transaction> trans_list = (Dictionary<long, Transaction>)files_rw.Read_list("Transaction Gateway",Main_menu.fullpath, "Transaction");
             SortedList<long, Transfer_Bank> transfers = (SortedList<long, Transfer_Bank>)files_rw.Read_list("Transfer Gateway",Main_menu.fullpath, "Transfer");
@@ -155,8 +155,8 @@ namespace PaymentGateway_Console
                                         Main_menu.transfer_list = transfers;
                                         // Return the information of the transaction
                                         files_rw.Write_file("Transaction Gateway", Main_menu.transaction_list,Main_menu.fullpath);
-                                        files_rw.Write_file("Transaction Gateway", Main_menu.transfer_list,Main_menu.fullpath);
-                                        Console.WriteLine($"Succesful Purchase the Id_transaction of your purchase is {trans_id}");
+                                        files_rw.Write_file("Transfer Gateway", Main_menu.transfer_list,Main_menu.fullpath);
+                                        Console.WriteLine($"Succesful shipping the Id_transaction of your shipping is {trans_id}");
                                         trans_Actions.Show_trans(new_trans);
                                         attempts += 3;
                                     }
@@ -311,7 +311,7 @@ namespace PaymentGateway_Console
                                         transfer_Actions.Cancel_trans(td, "Seller");
                                         //write files
                                         files_rw.Write_file("Transaction Gateway", Main_menu.transaction_list,Main_menu.fullpath);
-                                        files_rw.Write_file("Transaction Gateway", Main_menu.transfer_list,Main_menu.fullpath);
+                                        files_rw.Write_file("Transfer Gateway", Main_menu.transfer_list,Main_menu.fullpath);
                                         attem += 3;
                                     }
                                     else

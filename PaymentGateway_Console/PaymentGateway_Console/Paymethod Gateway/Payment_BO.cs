@@ -12,7 +12,7 @@ namespace PaymentGateway_Console
         public object Add_info(object user_name, string type )
         {
             string user = user_name as string;
-            string user_n = "", user_type = "", type_card = "", card_N = "", l4_digit = "", country = "", add_1 = "", add_2 = "", state = "", cp = "", exp_date = "01/01/2022 01:00:00 a. m.", cvv = "000", city = "";
+            string user_n = "", user_type = "", type_card = "", card_N = "0", l4_digit = "0", country = "", add_1 = "", add_2 = "", state = "", cp = "0", exp_date = "01/01/2022 01:00:00 a. m.", cvv = "000", city = "";
             Payment_method payment = new Payment_method( user_n,  user_type,  type_card,  card_N,  l4_digit,  country,  add_1,  add_2,  state,  cp,  exp_date,  cvv,  city );
             payment.User_type1 = type;
             Console.WriteLine("Country");

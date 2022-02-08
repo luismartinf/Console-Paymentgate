@@ -16,7 +16,7 @@ namespace PaymentGateway_Console
             Customer_BO customer_actions = new Customer_BO();
             Payment_BO payment_Actions = new Payment_BO();
             Transaction_BO trans_Actions = new Transaction_BO();
-            Transfer_actions transfer_Actions = new Transfer_actions();
+            Transfer_BO transfer_Actions = new Transfer_BO();
             //read the database of customers
             List<Customer> customers = (List<Customer>)files_rw.Read_list("Customers Gateway", @"C:\Users\luis.martin\Downloads\", "Customers");
             SortedList<string, Payment_method> payments = (SortedList<string, Payment_method>)files_rw.Read_list("Paymethod Gateway", @"C:\Users\luis.martin\Downloads\", "Paymethod");
@@ -143,7 +143,7 @@ namespace PaymentGateway_Console
                                         // Do the new transaction
                                         Console.WriteLine("Enter the Item purchase given by the Online shopping");
                                         int item_p = Convert.ToInt32(Console.ReadLine());
-                                        Transaction new_trans=(Transaction)trans_Actions.Add_trans(item_p, "Custumer", item_C.UserName1);
+                                        Transaction new_trans=(Transaction)trans_Actions.Add_trans(item_p, "Customer", item_C.UserName1);
                                         long trans_id = new_trans.Id_transaction1(item_p, "Customer");
                                         trans_list.Add(trans_id, new_trans);
                                         Main_menu.transaction_list = trans_list;
@@ -344,7 +344,7 @@ namespace PaymentGateway_Console
                                         transfer_Actions.Cancel_trans(td, "Seller");
                                         //write files
                                         files_rw.Write_file("Transaction Gateway", Main_menu.transaction_list, @"C:\Users\luis.martin\Downloads\");
-                                        files_rw.Write_file("Transaction Gateway", Main_menu.transfer_list, @"C:\Users\luis.martin\Downloads\");
+                                        files_rw.Write_file("Tranfer Gateway", Main_menu.transfer_list, @"C:\Users\luis.martin\Downloads\");
                                         attem += 3;
                                     }
                                     else

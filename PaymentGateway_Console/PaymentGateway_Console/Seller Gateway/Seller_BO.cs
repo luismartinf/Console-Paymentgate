@@ -14,7 +14,7 @@ namespace PaymentGateway_Console
         //Method to add a seller
         public object Add_info(object obj, string type = "Seller")
         {
-            string userName = "", first_N = "", last_N = "", add_date = "", password = "", email = "", os_url="";
+            string userName = "", first_N = "", last_N = "", add_date = "01/01/2022 01:00:00 a. m.", password = "", email = "", os_url="";
             Seller seller = new Seller(userName, first_N, last_N, add_date, password, email, os_url);
 
             //Generate a user name and check if it doesnot exist
@@ -53,7 +53,7 @@ namespace PaymentGateway_Console
                 validpassword = Valpassword.ValidatePassword(val_password);
                 if (validpassword == true)
                 {
-                    Console.Write("Valid password");
+                    Console.Write("Valid password \n");
                     seller.Password1 = val_password;
                 }
                 else
