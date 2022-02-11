@@ -41,9 +41,9 @@ namespace StoryEbox_example5
                             int order_comp = 0;
                             int order = 0;
                             while (order_comp <= 0)
-                                { for (order = 0; order < ordered_list.Count; order++)
-                                     { order_comp=element.CompareTo(ordered_list[order]); }
-                                }
+                            { for (order = 0; order < ordered_list.Count; order++)
+                                  { order_comp=element.CompareTo(ordered_list[order]); }
+                            }
                             ordered_list.Insert(order,element);
 
                         }

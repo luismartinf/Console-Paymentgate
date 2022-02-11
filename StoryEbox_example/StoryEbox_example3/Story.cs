@@ -15,6 +15,10 @@ namespace StoryEbox_example3
         int noOfLikes;
         int noOfReads;
 
+        public Story()
+        {
+        }
+
         public Story(string name, string authorName, string genre, int noOfChapters, int noOfLikes, int noOfReads)
         {
             this.name = name;
@@ -35,15 +39,13 @@ namespace StoryEbox_example3
         public static SortedList<string, int> GenreWiseCount(List<Story> stories)
         {
             SortedList<string, int> genreWiseCount = new SortedList<string, int>();
-            HashSet<string> genrs = new HashSet<string>();
+           
             foreach (var storie in stories)
             {
-                genrs.Add(storie.Genre);
-            }
-
-            foreach (var genr in genrs)
-            {   int count = stories.Count(story => story.Genre == genr);
-                genreWiseCount.Add(genr, count);
+                if (genreWiseCount.ContainsKey(storie.Genre))
+                { genreWiseCount[storie.Genre]++; }
+                else
+                { genreWiseCount.Add(storie.Genre, 1); }
             }
             return genreWiseCount;
         }

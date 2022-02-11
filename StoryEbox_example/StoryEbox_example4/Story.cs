@@ -15,6 +15,10 @@ namespace StoryEbox_example4
         int noOfLikes;
         int noOfReads;
 
+        public Story()
+        {
+        }
+
         public Story(string name, string authorName, string genre, int noOfChapters, int noOfLikes, int noOfReads)
         {
             this.name = name;

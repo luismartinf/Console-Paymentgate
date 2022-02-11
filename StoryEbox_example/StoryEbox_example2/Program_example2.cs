@@ -10,7 +10,7 @@ namespace StoryEbox_example2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Please enter a password o be validated");
+            Console.WriteLine("Please enter a password to be validated");
             string password = Console.ReadLine();
             if (validatePassword(password))
             {

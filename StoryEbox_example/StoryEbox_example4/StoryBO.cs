@@ -10,11 +10,9 @@ namespace StoryEbox_example4
     {
         public List<Story> findStory(List<Story> storyList, string authorName)
         {
-            SortedList<string, Story> f_Story = new SortedList<string, Story>();
+            
             List<Story> author_list = new List<Story>();
-            for(int count=0; count<storyList.Count; count++)
-            { f_Story.Add($"{storyList[count].AuthorName}{count}", storyList[count]); }
-             foreach (var story in f_Story.Values)
+             foreach (var story in storyList)
             {
                 if (story.AuthorName.Contains(authorName))
                 {

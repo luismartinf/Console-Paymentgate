@@ -13,6 +13,10 @@ namespace StoryEbox_example1
         string mailId;
         string password;
 
+        public User()
+        {
+        }
+
         public User(string username, string mailId, string password)
         {
             this.username = username;
