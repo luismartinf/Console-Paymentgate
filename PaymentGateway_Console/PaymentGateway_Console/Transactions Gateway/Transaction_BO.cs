@@ -85,7 +85,7 @@ namespace PaymentGateway_Console
         public void Update_trans(object id_trans, string phase)
         {
             long id = Convert.ToInt64(id_trans);
-            if (phase == "shipment")
+            if (phase == "Shipment")
             {
                 Transaction cus_uptrans = Main_menu.transaction_list[key:id - 1000000000];
                 cus_uptrans.Status = "Shipped";

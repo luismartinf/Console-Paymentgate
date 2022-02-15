@@ -14,14 +14,16 @@ namespace PaymentGateway_Console
             Read_write_files files_rw = new Read_write_files();
             List<Customer> customers = (List<Customer>)files_rw.Read_list("Customers Gateway", Main_menu.fullpath, "Customers");
             Main_menu.Gateway.Add(customers);
-            List<Seller> sellers = (List<Seller>)files_rw.Read_list("Sellers Gateway", @"C: \Users\luis.martin\Downloads\", "Sellers");
+            List<Seller> sellers = (List<Seller>)files_rw.Read_list("Sellers Gateway", Main_menu.fullpath, "Sellers");
             Main_menu.Gateway.Add(sellers);
-            Dictionary<long, Transaction> transactions = (Dictionary<long, Transaction>)files_rw.Read_list("Transactions Gateway", @"C: \Users\luis.martin\Downloads\", "Transactions");
+            Dictionary<long, Transaction> transactions = (Dictionary<long, Transaction>)files_rw.Read_list("Transactions Gateway", Main_menu.fullpath, "Transactions");
             Main_menu.Gateway.Add(transactions);
             SortedList<string, Payment_method> payments = (SortedList<string, Payment_method>)files_rw.Read_list("Paymethod Gateway", Main_menu.fullpath, "Paymethod");
             Main_menu.Gateway.Add(payments);
             SortedList<long, Transfer_Bank> transfers = (SortedList<long, Transfer_Bank>)files_rw.Read_list("Transfers Gateway", Main_menu.fullpath, "Transfers");
             Main_menu.Gateway.Add(transfers);
+
+
         }
     }
 }

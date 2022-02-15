@@ -31,12 +31,12 @@ namespace PaymentGateway_Console
                         ValidRole = true;
                         break;
                     case "Seller":
-                        Console.WriteLine("Select if you want to do actions for a sellor write S or only actions of the payment methods of existing sellor write PMS");
+                        Console.WriteLine("Select if you want to do actions for a sellor write S or only actions of the payment methods of existing seller write PMS");
                         string menu_SorPMS = Console.ReadLine();
                         if (menu_SorPMS == "S")
-                        { Main_menu.Menu_sellors(); }
+                        { Main_menu.Menu_sellers(); }
                         else if (menu_SorPMS == "PMS")
-                        { Menu_paymethod.Menu_sellors(); }
+                        { Menu_paymethod.Menu_sellers(); }
                         ValidRole = true;
                         break;
                     case "Manager":

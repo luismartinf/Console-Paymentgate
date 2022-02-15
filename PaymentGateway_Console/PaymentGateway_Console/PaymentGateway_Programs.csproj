@@ -49,6 +49,7 @@
     <Compile Include="Customers Gateway\Validatepassword.cs" />
     <Compile Include="Transfers_Gateway\Transfer_BO.cs" />
     <Compile Include="Menu Gateway\Menu_paymethod.cs" />
+    <Compile Include="User defined Interfaces\InexInexistentUserException.cs" />
     <Compile Include="User defined Interfaces\IActions_trans.cs" />
     <Compile Include="Transfers_Gateway\Transfer_Bank.cs" />
     <Compile Include="Paymethod Gateway\Payment_BO.cs" />

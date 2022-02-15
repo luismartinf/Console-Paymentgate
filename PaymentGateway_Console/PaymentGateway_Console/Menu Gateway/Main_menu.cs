@@ -19,6 +19,7 @@ namespace PaymentGateway_Console
         public static Dictionary<long, Transaction> transaction_list;
         public static SortedList<string, Payment_method> paymethod_list;
         public static SortedList<long, Transfer_Bank> transfer_list;
+
         //path where is saved the file  (@"C:\Users\luis.martin\Downloads)
         public static string fullpath = @"C:\Users\luis.martin\Downloads\";
 
@@ -31,7 +32,8 @@ namespace PaymentGateway_Console
             paymethod_list = (SortedList<string, Payment_method>)files_rw.Read_list("Paymethod Gateway", fullpath, "Paymethod");
             transfer_list= (SortedList<long, Transfer_Bank>)files_rw.Read_list("Transfer Gateway", Main_menu.fullpath, "Transfer");
         }
-        //menu of the customer
+
+        //Menu of the customer
         public static void Menu_customers()
         {
             Read_collection();
@@ -40,7 +42,7 @@ namespace PaymentGateway_Console
         }
 
         //Menu for the seller 
-        public static void Menu_sellors()
+        public static void Menu_sellers()
         {
             Read_collection();
             Sellers_menu seller_Menu = new Sellers_menu();
